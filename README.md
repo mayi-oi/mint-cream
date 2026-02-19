@@ -9,8 +9,8 @@ Hi there und wilkommen zum meine (nicht) echte Zeit website!
 
 ## task list 3000 lol
 - [ ] Einfügen paar Erster egg
-- [ ] Mache die website mehr "Leben" (ich glaube...)
+- [ ] Mache die website mehr spaß und simple (ich glaube...)
 - [ ] kleine auflösung display freundlich
-- [ ] veröfftenlich von github.io
+- [ ] veröfftenlich auf github.io
 
 <p align="center"><br> von mayi.-oi 2026 </p>
