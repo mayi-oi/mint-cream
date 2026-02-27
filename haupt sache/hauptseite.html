@@ -1,26 +1,100 @@
 <!DOCTYPE html>
-<html>
-<body>
-    <link rel="stylesheet" href="hauptseite.css">
-    <div class="navbar">
-        <nav>
-            <a href="hauptseite.html">Home</a>
-            <a href="aboutme.html">Über mich</a>
-            <a href="projekte.html">Projekte</a>
-            <a href="kontakt.html">Kontakt</a>
-            <a href="404.html">404 test</a>
-            <a href="504.html">504 test</a>
-    </nav>
-    </div>
-</body>
+<html lang="de">
 <head>
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
-    </style>
-    <title>mari.-oi!</title>
-    <h1>Hallo und wilkommen zum meine website! :D</h1>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mayi.-oi!</title>
+    <link rel="stylesheet" href="hauptseite.css">
+    <link rel="stylesheet" href="res/font/font.html">
 </head>
 <body>
-    <footer>erstellt von mayi-oi <strong>2026</strong></footer>
+   <nav>
+    <header>
+    <div class="logo">
+        <a href="hauptseite.html">
+        <img src="res/logo/logo.png" alt="logo">
+        </a>
+    </div>
+    </header>
+
+    <!-- Navbar -->
+    <ul class="navbar">
+        <a href="projekte.html">Projekt</a>
+        <a href="quelle.html">Quelle</a>
+        <a href="504.html">504 test</a>
+        <a href="404.html">404 test</a>
+        <li class="nav-audio">
+            <button id="playPauseBtn" aria-pressed="true" title="abspielen oder pause!">
+                <img src="res/icon/music_note_26dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg" alt="Play icon">
+                <span id="playLabel">Play</span>
+            </button>
+        </li>
+    </ul>
+   </nav>
+
+   <!-- Background-Audio: wird per Klick gestartet (Browser blockiert Autoplay mit Ton) -->
+   <audio id="myAudiorandom" preload="none"></audio>
+
+   <div class="background">
+       <div class="title">
+           <h1>bla bla bla bla bla bla wilkommen zum meine krasse website!</h1>
+           <p>Hinterground von: <strong>[placeholder name]</strong></p>
+       </div>
+   </div>
+
+   <footer>Erstellt von mayi.-oi 2026</footer>
+
+   <script>
+        const audio = document.getElementById('myAudiorandom');
+        const playBtn = document.getElementById('playPauseBtn');
+        const playLabel = document.getElementById('playLabel');
+
+        // Liste mit vollständigen Pfaden zu den Audiodateien
+        const songs = [
+            'res/hinterground musik/ブルーアーカイブ Blue Archive OST 297.mp3',
+            'res/hinterground musik/Polymorphic With Lyrics.mp3',
+            'res/hinterground musik/Silver Star - Kirispica【City Pop Original Song】.mp3',
+            'res/hinterground musik/Graveyard Shift at Freddys - Night 5 Theme (DJ Ultraviolet - Old Dog, New Tricks).mp3'
+        ];
+
+        function setRandomSource() {
+            const idx = Math.floor(Math.random() * songs.length);
+            // Browser toleriert Leerzeichen, aber encodeURI ist robuster
+            audio.src = encodeURI(songs[idx]);
+        }
+
+        function playRandomSong() {
+            if (!audio.src) setRandomSource();
+            audio.play().catch(err => {
+                console.log('Play error (likely autoplay blocked):', err);
+            });
+        }
+
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                // startet Wiedergabe (erfüllt User-Gesture-Anforderung)
+                if (!audio.src) setRandomSource();
+                audio.play().then(() => {
+                    playBtn.setAttribute('aria-pressed', 'true');
+                    playLabel.textContent = 'Pause';
+                }).catch(err => console.log(err));
+            } else {
+                audio.pause();
+                playBtn.setAttribute('aria-pressed', 'false');
+                playLabel.textContent = 'Play';
+            }
+        });
+
+        // Nach Ende eines Titels: nächster zufälliger Titel
+        audio.addEventListener('ended', () => {
+            setRandomSource();
+            audio.play().catch(err => console.log(err));
+        });
+
+        // Optional: beim Laden Sichtbarkeit setzen
+        document.addEventListener('DOMContentLoaded', () => {
+            playBtn.style.display = 'inline-flex';
+        });
+   </script>
 </body>
 </html>
