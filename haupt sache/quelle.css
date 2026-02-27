@@ -1,0 +1,137 @@
+body {
+    background-image: url(res/hinterground/marek-piwnicki-J9RF6CtW_Q0-unsplash.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo img {
+    filter: invert(1);
+    height: 50px;
+    padding-left: 10px;
+    transition: all 0.42s ease;
+}
+
+.logo img:hover {
+    filter: invert(0);
+    transform: scale(1.07);
+}
+
+.navbar {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00000032;
+    border-radius: 22px;
+    padding: 12px;
+    transition: all 0.32s ease;
+    gap: 8px;
+    opacity: 0.2;
+}
+
+.navbar > li {
+    list-style: none;
+}
+
+.navbar:hover {
+    background-color: #00000078;
+    border-radius: 17px;
+    padding: 14px;
+    backdrop-filter: blur(20px);
+    opacity: 1;
+}
+
+.navbar:active {
+    background-color: #82a7d77e;
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+}
+
+.navbar a {
+    color: #ffffff;
+    font-family: Google sans, sans-serif;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+}
+
+.navbar a:hover {
+    color: #000000bb;
+    font-weight: 600;
+    background-color: #ffa7f3;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.navbar a:active {
+    color: #ffffff;
+    background-color: #3674d700;
+    border: solid 2px #44a0f555;
+}
+
+.navbar button {
+    color: #ffffff;
+    font-family: Google sans;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 12px;
+    background-color: transparent;
+    border: none;
+    transition: all 0.5s ease;
+    align-self: auto;
+}
+
+.navbar button:hover {
+    color: #000000bb;
+    font-weight: 600;
+    border-radius: 12px;
+    background-color: #ffa7f3;
+    padding: 12px;
+}
+
+.title {
+    margin: 0;
+    position: fixed;
+    background-color: #0000005a;
+    border-radius: 18px;
+    transition: all 0.42s ease;
+    padding: 8px;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.title:hover {
+    border-radius: 32px;
+    background-color: #0000002b;
+    backdrop-filter: blur(12px);
+}
+
+.title h1 {
+    color: #ffffff;
+    font-family: Google sans;
+    font-size: 38px;
+    text-align: center;
+}
+
+.title p {
+    color: #ffffff;
+    font-family: google sans;
+    text-align: center;
+}
+
+footer {
+    color: #ffffff5b;
+    font-family: Google sans;
+    font-weight: 500;
+    text-align: center;
+    background-color: #182b4b00;
+    padding: 18px;
+}
